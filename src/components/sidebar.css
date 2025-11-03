@@ -1,0 +1,221 @@
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    background: #1a1d2e;
+    padding: 24px;
+    padding-top: 80px;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar h2 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.sidebar h3 {
+    color: #9ca3af;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 32px;
+}
+
+.sidebar-checkbox {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar.closed {
+    transform: translateX(-100%);
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 12px;
+    left: 20px;
+    z-index: 1001;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: #1a1d2e;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.sidebar-toggle:hover {
+    background: #252938;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.sidebar-toggle:active {
+    transform: scale(0.95);
+}
+
+.checkbox {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.checkbox:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.checkbox summary {
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    position: relative;
+}
+
+.checkbox summary::-webkit-details-marker {
+    display: none;
+}
+
+.checkbox summary::before {
+    content: "▸";
+    color: #9ca3af;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.checkbox[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.checkbox summary label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    flex: 1;
+}
+
+.checkbox > div {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.checkbox > div > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 4px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.checkbox > div > div:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.checkbox > div label {
+    color: #d1d5db;
+    font-size: 14px;
+    cursor: pointer;
+    flex: 1;
+    font-weight: 400;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+input[type="checkbox"]:checked {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    color: #1a1d2e;
+    font-size: 12px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 260px;
+        padding: 20px;
+        padding-top: 70px;
+    }
+    
+    .sidebar h2 {
+        font-size: 20px;
+    }
+    
+    .sidebar-toggle {
+        top: 12px;
+        left: 12px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
