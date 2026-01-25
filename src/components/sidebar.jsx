@@ -3,6 +3,7 @@ import {Checkbox} from "./checkbox.jsx";
 import './sidebar.css';
 
 export const Sidebar = ({selectedCategories, setSelectedCategories}) => {
+  
     const [isOpen, setIsOpen] = useState(false);
   
     const toggleSidebar = () => {
@@ -21,11 +22,10 @@ export const Sidebar = ({selectedCategories, setSelectedCategories}) => {
         
         <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
           <h2>Motor Sport Calendar</h2>
-          <h3>Check your favourites categories</h3>
           <div className='sidebar-checkbox'>
             <Checkbox
               title="Formulas"
-              options={["F1", "F2", "F3"]}
+              options={["F1", "F2", "F3", "FE"]}
               selectedCategories={selectedCategories}
               setSelectedCategories={setSelectedCategories}
             />
@@ -35,12 +35,14 @@ export const Sidebar = ({selectedCategories, setSelectedCategories}) => {
               selectedCategories={selectedCategories}
               setSelectedCategories={setSelectedCategories}
             />
+            {/*
             <Checkbox
               title="IMSA"
               options={["MX5", "Mustang"]}
               selectedCategories={selectedCategories}
               setSelectedCategories={setSelectedCategories}
             />
+            */}
           </div>
         </div>
       </div>

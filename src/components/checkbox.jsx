@@ -3,7 +3,8 @@ import './checkbox.css';
 
   export const Checkbox = ({title, options, selectedCategories, setSelectedCategories}) => {
     const allSelected = options.every(opt => selectedCategories.includes(opt));
-  
+    
+    //marcar o desmarcar grupo
     const toggleAll = () => {
       if (allSelected) {
         setSelectedCategories(prev => prev.filter(cat => !options.includes(cat)));
@@ -12,6 +13,7 @@ import './checkbox.css';
       }
     };
   
+    //marcar o desmarcar categoria individual
     const toggleOption = (opt) => {
       setSelectedCategories(prev =>
         prev.includes(opt)
@@ -21,7 +23,7 @@ import './checkbox.css';
     };
   
     return (
-      <details className="checkbox" open>
+      <details className="checkbox" close>
         <summary>
           <label>
             {title}
